@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Chatbot</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- Loading Spinner -->
+  <div id="loadingOverlay">
+    <div class="spinner"></div>
+  </div>
+
+  <div class="chat-wrapper">
+    <div class="chat-header">
+      <h2>🤖 AI Assistant</h2>
+    </div>
+
+    <div id="chat-container" class="chat-container">
+      <div class="message bot-message"><strong>Bot:</strong> Hello! How can I assist you today?</div>
+    </div>
+
+    <form id="chat-form" class="chat-input-area">
+      <textarea id="chat-input" placeholder="Type your message..." rows="1" maxlength="1000"></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </div>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
