@@ -1,89 +1,95 @@
-🧠 ChatBotWeb – AI Chatbot for Expert Soft
-📌 Overview
-ChatBotWeb is a lightweight AI chatbot built with Python and Flask. It uses a locally defined dataset (expert_soft_chatbot_dataset.json) to respond intelligently to user queries using NLP techniques. Designed as a prototype for software houses like Expert Soft, it's modular, fast, and easy to customize.
+# 🧠 Groq Chatbot (Flask + FAISS + Sentence Transformers)
 
-🚀 Features
-Intent-based NLP chatbot
+> ⚠️ **Note:** This repository does **not** include the Groq API key.  
+> You must create a `.env` file and add your own key as:
+>
+> ```env
+> GROQ_API_KEY=your_groq_api_key_here
+> ```
+>
+> Without this, the app **will not work**.
 
-Contextual response logic using sentence embeddings
+---
 
-Flask-powered web interface
+A fast, lightweight chatbot built using Flask, FAISS, Sentence Transformers, and the Groq API. Ideal for local usage and custom chatbot development with semantic search.
 
-Easy to extend with more intents and responses
+## 🔗 Live Repository
 
-JSON-based dataset for flexibility
+[GitHub Repository](https://github.com/Hanzala-Naseer/grok-chatbot)
+
+---
+
+## 🚀 Features
+
+- Fast semantic search using FAISS
+- Sentence Transformers for intent matching
+- Uses Groq API for real-time LLM responses
+- Dockerized for fast deployment
+- Clean HTML or Streamlit-based UI
+- Minimal memory footprint
+
+---
+
+## 📦 Clone & Run Locally
+
+```bash
+git clone https://github.com/Hanzala-Naseer/grok-chatbot.git
+cd grok-chatbot
+python -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
+pip install -r requirements.txt
+⚠️ Environment Setup
+Create a .env file in the root directory with your Groq API key:
+
+env
+Copy
+Edit
+GROQ_API_KEY=your_groq_api_key_here
+🔐 Do not share your .env file or API key publicly.
+
+▶️ Run the Chatbot (Flask)
+bash
+Copy
+Edit
+python chat.py
+Then open: http://localhost:5000
+
+🐳 Run with Docker
+bash
+Copy
+Edit
+docker build -t groq-chatbot .
+docker run -p 5000:5000 groq-chatbot
+🧰 Tech Stack
+Python 3.10+
+
+Flask
+
+FAISS
+
+Sentence Transformers
+
+Groq API
+
+Docker (optional)
+
+Streamlit (optional)
 
 📁 Project Structure
 bash
 Copy
 Edit
-ChatBotWeb/
-├── app.py # Flask app
-├── chatbot_groq.py # Chat logic (intent matching)
-├── expert_soft_chatbot_dataset.json # Dataset of intents
-├── requirements.txt # Required Python libraries
-├── .env # Environment variables
-├── README.md # Project documentation
-⚙️ Installation & Setup
-bash
-Copy
-Edit
-git clone https://github.com/Hanzala-Naseer/grok-chatbot
-cd ChatBotWeb
-
-# Create and activate virtual environment (optional)
-
-python -m venv venv
-source venv/bin/activate # On Windows use: venv\Scripts\activate
-
-# Install dependencies
-
-pip install -r requirements.txt
-
-# Run the Flask app
-
-python app.py
-Open your browser and go to: http://localhost:5000
-
-🧩 How It Works
-Receives user input from the front-end
-
-Uses sentence transformer embeddings to compare input with training patterns
-
-Matches the best intent and returns a response
-
-Returns fallback message if no match is found
-
-📊 Sample Intent (from JSON)
-json
-Copy
-Edit
-{
-"tag": "greeting",
-"patterns": ["hello", "hi", "good morning"],
-"responses": ["Hello! How can I assist you today?", "Hi there!"]
-}
-🛠 Tech Stack
-Python 3.x
-
-Flask
-
-Sentence Transformers
-
-Scikit-learn
-
-JSON for dataset
-
-🧪 Future Improvements
-GUI-based chatbot frontend
-
-Chat history and context memory
-
-Live database or API integration
-
-Deployment on Render, Vercel, or Docker
-
-👤 Author
-Developed by Hanzala Naseer
-
-📧 hanzalanaseer56@gmail.com
+grok-chatbot/
+│
+├── chat.py                      # Main Flask server
+├── model.pkl                    # Precomputed vector model
+├── expert_soft_chatbot_dataset.json
+├── templates/                   # HTML templates (if UI used)
+├── static/                      # CSS/JS files
+├── .env                         # Not included, must be created
+├── requirements.txt
+├── Dockerfile
+└── README.md
+✍️ Author
+Hanzala Naseer
+```
